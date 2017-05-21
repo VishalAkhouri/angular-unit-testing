@@ -31,4 +31,20 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('app works!');
   }));
+
+  describe('testClick', () => {
+    it('should remove the url', () => {
+      // Given
+      const fixture = TestBed.createComponent(AppComponent);
+      let component: AppComponent = fixture.componentInstance;
+      fixture.detectChanges();
+
+      let event = { data: 'event1'};
+      // When
+      component.testClick(event);
+
+      // Then
+      expect(component.url).toEqual('');
+    });
+  });
 });

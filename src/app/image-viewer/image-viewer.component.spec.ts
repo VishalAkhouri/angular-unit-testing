@@ -22,4 +22,18 @@ describe('ImageViewerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // event emitter testing: http://stackoverflow.com/questions/35319476/any-way-to-test-eventemitter-in-angular2# 
+  describe('imageButtonClicked()', () => {
+    it('should click handle', () => {
+      // Given
+      spyOn(component.clickHandler, 'emit');
+
+      // When
+      component.imageButtonClicked();
+
+      // Then
+      expect(component.clickHandler.emit).toHaveBeenCalledWith({done: true});
+    });
+  });
 });

@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
-  url: 'assets/confused.jpg';
+  url = '/assets/confused.jpg';
+
+  testClick($event) {
+    console.log('clicked');
+    this.url = '';
+  }
 }
